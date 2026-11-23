@@ -133,8 +133,13 @@ export default function GradesList({ semester, user }: GradesListProps) {
       {/* Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {[
+<<<<<<< HEAD
           { label: 'PROMEDIO ACTUAL DEL SEMESTRE', value: semester.gpa.toFixed(2), icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-50' },
           { label: 'PROMEDIO DEL PROGRAMA', value: semester.gpa.toFixed(2), icon: BarChart3, color: 'text-blue-600', bg: 'bg-blue-50' },
+=======
+          { label: 'PAPA', value: semester.gpa.toFixed(2), icon: TrendingUp, color: 'text-green-600', bg: 'bg-green-50' },
+          { label: 'PAPI', value: semester.gpa.toFixed(2), icon: BarChart3, color: 'text-blue-600', bg: 'bg-blue-50' },
+>>>>>>> 081ba80e444631c8ed62a59ea8182c8c812c35a6
           { label: 'Créditos', value: semester.courses.reduce((acc, c) => acc + c.credits, 0), icon: GraduationCap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
           { label: 'Materias', value: semester.courses.length, icon: BookOpen, color: 'text-orange-600', bg: 'bg-orange-50' },
         ].map((stat, i) => (
