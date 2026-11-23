@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-sidebar: #1e2d4d;
+  --color-brand-active: #2b3e66;
+  --color-brand-accent: #facc15;
+  --color-brand-success: #22c55e;
+  --color-brand-warning: #ef4444;
+  --color-brand-info: #3b82f6;
+  --color-brand-gold: #d97706;
+  --color-brand-bg: #f5f7f9;
+}
+
+.dark {
+  --color-brand-sidebar: #0f172a;
+  --color-brand-active: #1e293b;
+  --color-brand-bg: #020617;
+  --color-slate-50: #1e293b;
+  --color-slate-100: #334155;
+  --color-slate-200: #475569;
+  --color-slate-400: #94a3b8;
+  --color-slate-700: #f1f5f9;
+  --color-slate-800: #f8fafc;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-slate-700 font-sans antialiased transition-colors duration-300;
+  }
+}
+
+.sidebar-nav-item {
+  @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all duration-200 border-l-4 border-transparent;
+}
+
+.sidebar-nav-item-active {
+  @apply bg-brand-active text-white border-brand-accent;
+}
+
+.sidebar-nav-item-inactive {
+  @apply text-slate-400 hover:bg-white/5 hover:text-white;
+}
+
+.card-base {
+  @apply bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden transition-colors duration-300;
+}
+
+.dark .card-base {
+  @apply bg-slate-900 border-slate-800;
+}
+
+.dark .bg-white {
+  @apply bg-slate-900 border-slate-800;
+}
+
+.dark .bg-brand-bg {
+  @apply bg-[#020617];
+}
+
+.dark .text-slate-400 {
+  @apply text-slate-300;
+}
+
+.dark .text-slate-500 {
+  @apply text-slate-200;
+}
+
+.dark .text-slate-600 {
+  @apply text-slate-100;
+}
+
+.dark .text-slate-700 {
+  @apply text-white;
+}
+
+.dark .text-slate-800 {
+  @apply text-white;
+}
+
+.dark .border-slate-100 {
+  @apply border-slate-800;
+}
+
+.dark .border-slate-200 {
+  @apply border-slate-800;
+}
+
+.dark header {
+  @apply bg-slate-900 border-slate-800;
+}
+
+.dark .bg-slate-50 {
+  @apply bg-slate-800/50 border-slate-700;
+}
+
+.dark .bg-slate-100 {
+  @apply bg-slate-800;
+}
+
+.dark .bg-slate-200 {
+  @apply bg-slate-700;
+}
+
+.dark .bg-blue-50 {
+  @apply bg-blue-900/20 border-blue-800/30;
+}
+
+.dark .text-blue-700 {
+  @apply text-blue-300;
+}
+
+.dark .text-blue-600 {
+  @apply text-blue-400;
+}
+
+.dark .bg-green-100 {
+  @apply bg-green-900/30;
+}
+
+.dark .bg-blue-100 {
+  @apply bg-blue-900/30;
+}
+
+.dark .bg-purple-100 {
+  @apply bg-purple-900/30;
+}
+
+.dark .bg-orange-100 {
+  @apply bg-orange-900/30;
+}
+
+.dark .bg-red-50 {
+  @apply bg-red-900/20 border-red-800/30;
+}
+
+.dark .bg-green-50 {
+  @apply bg-green-900/20 border-green-800/30;
+}
+
+.dark .bg-amber-50 {
+  @apply bg-amber-900/20 border-amber-800/30;
+}
+
+.dark .text-red-700 { @apply text-red-300; }
+.dark .text-red-600 { @apply text-red-400; }
+.dark .text-green-700 { @apply text-green-300; }
+.dark .text-green-600 { @apply text-green-400; }
+.dark .text-amber-900 { @apply text-amber-200; }
+.dark .text-amber-800 { @apply text-amber-300; }
+
+.status-label-approved {
+  @apply text-brand-success font-bold text-[10px];
+}
+
+.status-label-risk {
+  @apply text-brand-warning font-bold text-[10px];
+}
+
+.progress-bar-container {
+  @apply h-1.5 w-full bg-slate-100 rounded-full overflow-hidden;
+}
+
+.progress-bar-success {
+  @apply h-full bg-brand-success;
+}
+
+.progress-bar-risk {
+  @apply h-full bg-brand-warning;
+}
+
+.progress-bar-info {
+  @apply h-full bg-brand-info;
+}
+
+/* Custom Scrollbar Styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* slate-300 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* slate-400 */
+}
+
+/* Landscape Mode Sidebar Fix */
+@media (max-height: 500px) and (orientation: landscape) {
+  aside nav {
+    @apply flex-1 overflow-y-auto;
+  }
+}
+
+/* Ensure cards and tables don't take unnecessary height in landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+  .card-base {
+    @apply p-4;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* slate-300 */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* slate-400 */
+}
+
+/* Firefox Support */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* Global scrollbar improvements (for elements without .custom-scrollbar) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+
